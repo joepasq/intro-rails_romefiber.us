@@ -4,15 +4,19 @@
   <%= @message %> <%= form.text_field :title %> <%= form.submit "Submit" %>
 <% end %>
 
-<h4>See what everyone else use fiber for:</h4>
+<h4>See what everyone else would use fiber for:</h4>
+
 <% if @entries.size > 0 %>
-  
+  <% lquo = "&ldquo;".html_safe %>
+  <% rquo = "&rdquo;".html_safe %>
+
   <% for entry in @entries %>
-    <%= link_to("&ldquo;".html_safe + truncate(entry.title) + "&rdquo;".html_safe, entry_path(entry)) %>
+    <% display_title = lquo + truncate(entry.title) + rquo %>
+    <%= link_to(display_title, entry_path(entry), { onclick: "entry_detail('#{entry.title}'); return false;" }) %>
   <% end %>
 
 <% else %>
-  
+
   <p>Uh oh, no one has said what they could do with fiber yet. Add your own <%= link_to 'New Entry', new_entry_path %></p>
 
 <% end %>
