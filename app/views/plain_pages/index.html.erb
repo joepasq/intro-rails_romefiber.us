@@ -1,7 +1,7 @@
 <h1>Rome Fiber</h1>
 
 <%= form_for @new_entry do |form| %>
-  <%= @message %> <%= form.text_field :title %>
+  <%= @message %> <%= form.text_field :title %> <%= form.submit "Submit" %>
 <% end %>
 
 <% for entry in @entries %>
