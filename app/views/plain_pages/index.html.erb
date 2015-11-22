@@ -1,6 +1,8 @@
 <h1>Rome Fiber</h1>
 
-<%= link_to 'Add Entry', new_entry_path %>
+<%= form_for @new_entry do |form| %>
+  <%= @message %> <%= form.text_field :title %>
+<% end %>
 
 <% for entry in @entries %>
     <div class="entry">
