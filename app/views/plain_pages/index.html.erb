@@ -1,5 +1,11 @@
 <h1>Rome Fiber</h1>
 
-<p>Check out our entries at <%= link_to('Entries', entries_path) %></p>
+<%= link_to 'Add Entry', new_entry_path %>
+
+<% for entry in @entries %>
+    <div class="entry">
+        <p><%= entry.title %></p>
+    </div>
+<% end %>
 
 <footer>The time is <%= @time.to_s(:time) %></footer>
