@@ -8,9 +8,9 @@ set :rbenv_type, :system
 set :rbenv_ruby, '2.2.3'
 # set :bundle_path, -> { shared_path.join('bundle') }   # this is default
 
-set :passenger_restart_command, "touch #{fetch(:deploy_to) + '/current/tmp/restart.txt'}"
-set :passenger_restart_options, -> { "" } 
-
+set :passenger_restart_with_touch, true
+# TODO This bundle path is wrong, the tilde is not expanded! 
+set :bundle_path, -> { shared_path.join('~/.gem') }  
 set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml')
 
 # Default branch is :master
