@@ -13,3 +13,141 @@
  *= require_tree .
  *= require_self
  */
+.h1 {
+  padding-top: 1em;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+nav {
+  position: fixed;
+  padding: 10px;
+  top: 0;
+  left: 0;
+  right: 0;
+  text-align: right;
+  z-index: 1;
+  background-color: #212121;
+  background-color: rgba(33, 33, 33, 0.9);
+  border-bottom: thin solid black;
+  border-top: thin solid lightgray;
+}
+
+nav a {
+  border: 2px solid yellow;
+  padding: 0.4em;
+  border-radius: 5px;
+  color: yellow;
+}
+
+body {
+  padding: 2em 1em;
+  background-color: #EEE;
+  font-family: -apple-system, 'Avenir Next', 'Helvetica', Arial, 'Sans Serif';
+}
+
+.tall-bar {
+  border-right: thin solid black;
+  margin-right: 0.3em;
+}
+
+.wide-bar {}
+
+.plan  {}
+
+.split {
+  float: left;
+  max-width: 48%;
+  width: 47%;
+  min-width: 6em;
+  display: block;
+}
+
+.grid > a { 
+  max-width: 48%;
+  min-width: 6em;
+  display: inline-block;
+  text-align: center;
+  padding: 0.3em;
+  margin: 0.25em 0;
+  border-radius: 5px;
+  background-color: lightgray;
+}
+
+.clearfix {
+  float: none;
+  clear: both;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  margin: auto;
+  border-radius: 5px;
+  display: block;
+}
+
+.hero {
+  background-color: darkgray;
+}
+
+.hero img {
+  width: 80%;
+}
+
+p span {
+  /*text-transform: ;*/
+  font-variant: small-caps;
+  font-weight: bolder;
+}
+
+h4 {
+  margin: 0.75em 0.5em 0.5em 0.5em;
+}
+
+@media only screen and (max-width: 510px) {
+  .grid > a {
+    max-width: 75%;
+    color: red;
+  }
+  .split {
+    max-width: 100%;
+    width: 100%;
+  }
+  .tall-bar {
+    border-right: none;
+    margin-right: inherit;
+  }
+}
+
+@media only screen and (min-width: 1025px) {
+  .grid > a {
+    max-width: 20%;
+  }
+}
+
+@media only screen and (max-height: 768px) and (max-width: 768px) {
+  .grid > a {
+    max-width: 90%;
+    color: green;
+  }
+  .split {
+    max-width: 90%;
+    width: 90%;
+  }
+  .tall-bar {
+    border-right: none;
+    margin-right: inherit;
+  }
+}
+
+footer {
+  margin: 1em;
+  text-align: right;
+}

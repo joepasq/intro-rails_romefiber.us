@@ -1,22 +1,35 @@
-<h1>Rome Fiber</h1>
+<div class="tall-bar split">
+  <p class="pitch"><span>Welcome</span> to Rome Fiber. A campaign and plan to build residential fiber optics in Rome, New York. </p>
+  
+  <p><span>The plan is simple</span>: 
+    <ol class="plan">
+      <li>show community support</li>
+      <li>ask City Hall for an exploratory budget and choose a model</li>
+      <li>start a pilot program</li>  
+      <li>deploy to all of Rome.</li>
+    </ol> 
+  </p>
 
-<%= form_for @new_entry do |form| %>
-  <%= @message %> <%= form.text_field :title %> <%= form.submit "Submit" %>
-<% end %>
+  <p><span>What is Fiber?</span> Fiber optic cable delivers Internet connectivity at insanely fast speeds. This is important because digital communications are essential to economic development, quality of life, and many other uses such as tele-medicine and emergency services.</p>
+</div>
 
-<h4>See what everyone else would use fiber for:</h4>
-
-<% if @entries.size > 0 %>
-  <% lquo = "&ldquo;".html_safe %>
-  <% rquo = "&rdquo;".html_safe %>
-
-  <% for entry in @entries %>
-    <% display_title = lquo + truncate(entry.title) + rquo %>
-    <%= link_to(display_title, entry_path(entry), { onclick: "entry_detail('#{entry.title}'); return false;" }) %>
+<div class="split">
+  <%= form_for @new_entry do |form| %>
+    <%= @message %> <%= form.text_field :title %> <%= form.submit "Submit" %>
   <% end %>
+  <div class="grid">
+  <h4>See what everyone else use fiber for:</h4>
+  <% if @entries.size > 0 %>
+    <% lquo = "&ldquo;".html_safe %>
+    <% rquo = "&rdquo;".html_safe %>
+    <% for entry in @entries %>
+      <% display_title = lquo + truncate(entry.title) + rquo %>
+      <%= link_to(display_title, entry_path(entry), { onclick: "entry_detail('#{entry.title}'); return false;" }) %>
+    <% end %>
+  <% else %>
+    <p>Uh oh, no one has said what they could do with fiber yet. Add your own <%= link_to 'New Entry', new_entry_path %></p>
+  <% end %>
+  </div>
+</div>
 
-<% else %>
-
-  <p>Uh oh, no one has said what they could do with fiber yet. Add your own <%= link_to 'New Entry', new_entry_path %></p>
-
-<% end %>
+<div class="clearfix"></div>
